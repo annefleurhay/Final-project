@@ -3,10 +3,17 @@
     margin: 5px;
     font-family:monospace;
     font-size: 26px;
+    text-decoration: none
 
 }
 button {
-    font-size: 20px
+    font-size: 20px;
+    border-radius: 8px;
+    
+}
+button:hover{
+    background-color: aqua;
+    transition: 0.3s;
 }
 
 
