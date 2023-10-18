@@ -27,7 +27,7 @@ return (
       
       {plants.map((plant, index) => (
        <ul key={index} className={plant.needsWater ? 'needs-water': ''}>
-          <li><button><Link to={`/plants/${plant.id}`}>{plant.name}</Link></button></li>
+          <li><button><Link to={`/plants/${plant.id}`} state={plant}>{plant.name}</Link></button></li>
           {/*<p>Location: {plant.place}</p>
           <p>Last Watered: {plant.lastWatered}</p>
       <p>Needs water? {plant.needsWater ? "Yes" : "No"}</p>*/}
