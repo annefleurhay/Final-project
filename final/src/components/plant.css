@@ -1,0 +1,16 @@
+.plant {
+    
+    color: white;
+    
+}
+.plant li {
+    font-size: 20px;
+}
+
+.needs-water li {
+    color: rgb(236, 18, 18);
+    font-size: 30px;
+}
+.needs-water button {
+    background-color: red;
+}
