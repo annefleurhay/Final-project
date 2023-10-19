@@ -32,7 +32,7 @@ export default function PlantPost(){
     //.catch((err) => {
     //    console.log(err.message);
     //})
-    navigate('/plants')
+    navigate('/plants');
 
 
     }

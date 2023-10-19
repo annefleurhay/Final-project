@@ -6,7 +6,9 @@ namespace final.wwwapi.Repository
     {
 
         IEnumerable<Plant> GetPlants();
+        void UpdateWatering(UpdateWaterDate wateringDate);
 
+        Plant CreatePlant(Plant plant);
 
     }
 }

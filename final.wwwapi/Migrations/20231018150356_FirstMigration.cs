@@ -20,7 +20,7 @@ namespace final.wwwapi.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     name = table.Column<string>(type: "text", nullable: false),
                     place = table.Column<string>(type: "text", nullable: false),
-                    lastWatered = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    lastWatered = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     dayfrequency = table.Column<int>(type: "integer", nullable: false),
                     userId = table.Column<int>(type: "integer", nullable: false)
                 },

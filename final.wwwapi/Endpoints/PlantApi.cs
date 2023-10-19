@@ -1,6 +1,7 @@
 ﻿using final.wwwapi.Models;
 using final.wwwapi.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics.Contracts;
 
 namespace final.wwwapi.Endpoints
@@ -10,6 +11,8 @@ namespace final.wwwapi.Endpoints
         public static void ConfigurePlantApi(this WebApplication app)
         {
             app.MapGet("/plants", GetPlants);
+            app.MapPut("/plants/updateWatering", UpdateWatering);
+            app.MapPost("/plants/new", CreatePlant);
         }
 
 
@@ -33,12 +36,10 @@ namespace final.wwwapi.Endpoints
                
             }
 
-
-
-
-
-            return Results.Ok(plants);
+            return Results.Ok(plants.OrderBy(p=>p.id));
         }
+
+
         private static void CalculateWateringStatus(PlantResponse plantResponse, DateTime lastWatered, int dayfrequency)
         {
             WateringPal wateringPal = new WateringPal();
@@ -46,6 +47,42 @@ namespace final.wwwapi.Endpoints
 
         }
 
-        
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public static async Task<IResult> UpdateWatering(IRepository repository, UpdateWaterDate updateWaterDate) //Zet er een id in in plaats van updatewaterdate maar dit hoeft niet.
+        {
+            var plants = repository.GetPlants();
+            var excistingPlant = plants.FirstOrDefault(p => p.id == updateWaterDate.plantId);
+
+            if (excistingPlant == null)
+            {
+                return Results.NotFound();
+            }
+
+            excistingPlant.lastWatered = DateTime.UtcNow;
+            repository.UpdateWatering(updateWaterDate);
+            return Results.NoContent();
+        }
+
+
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public static async Task<IResult> CreatePlant(PlantPost plantPost, IRepository repository)
+        {
+            Plant plant = new Plant();
+
+            plant.place = plantPost.place;
+            plant.lastWatered = DateTime.UtcNow;
+            plant.dayfrequency = plantPost.dayfrequency;
+            plant.name = plantPost.name;
+            plant.userId = 1;
+            repository.CreatePlant(plant);
+
+            return Results.Ok();
+            
+        }
+
+
     }
 }

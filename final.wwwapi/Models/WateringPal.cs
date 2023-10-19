@@ -1,5 +1,6 @@
 ﻿namespace final.wwwapi.Models
 {
+    
     public class WateringPal
     {
         public bool wateringtime(DateTime lastwatered, int dayfrequency)

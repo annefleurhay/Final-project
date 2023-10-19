@@ -12,7 +12,7 @@ using final.wwwapi.Data;
 namespace final.wwwapi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231016131853_FirstMigration")]
+    [Migration("20231018150356_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -36,7 +36,7 @@ namespace final.wwwapi.Migrations
                     b.Property<int>("dayfrequency")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("lastWatered")
+                    b.Property<DateTime>("lastWatered")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("name")

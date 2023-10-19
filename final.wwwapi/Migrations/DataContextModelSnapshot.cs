@@ -33,7 +33,7 @@ namespace final.wwwapi.Migrations
                     b.Property<int>("dayfrequency")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime?>("lastWatered")
+                    b.Property<DateTime>("lastWatered")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("name")
