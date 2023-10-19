@@ -1,19 +1,18 @@
 * {
-    background-color: rgb(22, 127, 29);
+    background-color: rgb(19, 107, 25);
     margin: 5px;
     font-family:monospace;
-    font-size: 26px;
+    font-size: 30px;
     text-decoration: none
+}
 
+.account h1{
+    font-size: 46px;
+    text-align: center;
 }
-button {
-    font-size: 20px;
-    border-radius: 8px;
-    
-}
-button:hover{
-    background-color: aqua;
-    transition: 0.3s;
-}
+
+
+
+
 
 

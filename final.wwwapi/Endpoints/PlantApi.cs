@@ -3,6 +3,7 @@ using final.wwwapi.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Diagnostics.Contracts;
+using System.Diagnostics.Eventing.Reader;
 
 namespace final.wwwapi.Endpoints
 {
@@ -56,14 +57,28 @@ namespace final.wwwapi.Endpoints
             var plants = repository.GetPlants();
             var excistingPlant = plants.FirstOrDefault(p => p.id == updateWaterDate.plantId);
 
-            if (excistingPlant == null)
+            if (excistingPlant != null) //If the plant is found
             {
-                return Results.NotFound();
+                WateringPal waterPal = new WateringPal();
+                if (waterPal.wateringtime(excistingPlant.lastWatered, excistingPlant.dayfrequency))
+                {
+                    excistingPlant.lastWatered = DateTime.UtcNow;
+                    repository.UpdateWatering(updateWaterDate);
+                    return Results.NoContent();
+                }
+                 else
+                {
+                    return Results.Ok();
+                }
             }
+                return Results.NotFound();
 
-            excistingPlant.lastWatered = DateTime.UtcNow;
-            repository.UpdateWatering(updateWaterDate);
-            return Results.NoContent();
+            
+       
+           
+            
+
+            
         }
 
 

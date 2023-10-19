@@ -24,7 +24,7 @@ function Plant(){
 return (
     <div className='plant'>
       
-      
+      <Link to={`/plants/new`}><button>Add plant</button></Link>
       {plants.map((plant, index) => (
        <ul key={index} className={plant.needsWater ? 'needs-water': ''}>
           <li><button><Link to={`/plants/${plant.id}`} state={plant}>{plant.name}</Link></button></li>
@@ -33,7 +33,7 @@ return (
         </ul>
         
       ))}
-      <Link to={`/plants/new`}><button>Add plant</button></Link>
+      
 
       
       <button onClick={()=> navigate('/')}>Go Back</button>

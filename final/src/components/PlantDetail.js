@@ -1,4 +1,5 @@
 import React from 'react';
+import '../components/plantdetails.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect} from 'react'
 
@@ -22,13 +23,12 @@ function PlantDetail() {
       });
 
       if (response.status === 204) {
-        // Update is geslaagd
         alert('Yay, thank you for the water!');
       } else if (response.status === 404) {
-        // Plant niet gevonden
         alert('Plant id not found.');
+      }else if(response.status === 200){
+          alert('I do not need water right now')
       } else {
-        // Andere foutafhandeling
         alert('Oops, something went wrong');
       }
     } catch (error) {
@@ -44,10 +44,7 @@ function PlantDetail() {
     
   }, []);
 
-  if (!plant) {
-    return <p>Loading...</p>
-
-  }
+  
   return (
     <div>
       <div>
@@ -57,6 +54,7 @@ function PlantDetail() {
     </div>
     <button onClick={()=> navigate('/plants')}>Go Back</button>
     <button onClick={updateWatering} disabled={updating}>Water me</button>
+    
       
     </div>
   );

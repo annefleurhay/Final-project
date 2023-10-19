@@ -9,7 +9,7 @@ import { Routes, Route, Link} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       {/*<DataContext.Provider>*/}
     
       <Account/>

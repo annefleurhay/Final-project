@@ -1,0 +1,9 @@
+button {
+    font-size: 20px;
+    border-radius: 8px;
+    
+}
+button:hover{
+    background-color: aqua;
+    transition: 0.3s;
+}
