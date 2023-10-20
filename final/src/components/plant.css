@@ -1,16 +1,68 @@
-.plant {
-    margin: 10px;
-    color: white;
-    
-}
+
 .plant li {
-    font-size: 20px;
+    font-size: 18px;
+    margin: 10px;
 }
 
-.needs-water li {
-    color: rgb(236, 18, 18);
-    font-size: 30px;
+
+.plant button, a {
+    border-radius: 10px;
+    background-color: #2c3b0b;
+    color: white;
 }
-.needs-water button {
-    background-color: red;
+.plant a:visited, .plant a:link {
+ color: rgb(255, 255, 255);
 }
+
+.plant a:hover {
+    background-color: rgb(206, 193, 193);
+    color: black;
+    
+    transition: 0.1s;
+    
+}
+.plant a {
+    text-align: center;
+    padding: 7px;
+    
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.plant-grid {
+   
+    text-align: center;
+    
+   
+}
+
+.plant-grid a {
+    background-color:#2c3b0b;
+    margin:15px;
+    display: block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px
+
+    
+}
+.plant-grid:hover{
+    
+    color: black;
+    cursor: pointer;
+    
+}
+.plant-grid li{
+    padding: 10px;
+    
+}
+.needs-water a {
+    background-color: rgb(168, 12, 12);
+}
+
+

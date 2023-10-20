@@ -4,17 +4,18 @@ import PlantPost from './components/PlantPost';
 import PlantDetail from './components/PlantDetail';
 import Account from './components/Account';
 //import { useState} from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 //import DataContext from './components/DataContext';
 
 function App() {
   return (
     <div className='App'>
       {/*<DataContext.Provider>*/}
-    
       <Account/>
-      <p><Link to='/plants'>My Plantbabies</Link></p>
-      {/*<Plant/>*/}
+      
+      
+      
+      {/*<Plant/> */}
       
       <Routes>
         <Route path='/plants' element={<Plant/>}/>

@@ -1,15 +1,38 @@
 * {
-    background-color: rgb(19, 107, 25);
-    margin: 5px;
-    font-family:monospace;
-    font-size: 30px;
-    text-decoration: none
+    margin: 10px;
+    font-family:monospace; 
+    text-decoration: none;  
 }
-
+ p {
+    margin: 6px;
+    color: white;
+    font-size: 28px;
+}
 .account h1{
-    font-size: 46px;
+    font-size: 46px; 
+    color: white;  
+}
+.account a {
+    border-radius: 5px;
+    padding: 2px;
+    margin: 10px;
+    
+    background-color: #2c3b0b;
+    color: white;
+}
+.account h1, p {
     text-align: center;
 }
+.account a:hover {
+    background-color: rgb(206, 193, 193);
+    color: black;
+}
+
+
+
+
+
+
 
 
 

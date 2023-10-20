@@ -1,14 +1,14 @@
-import '../components/account.css'
+import '../components/plant.css'
 
 import { useState, useEffect } from "react";
-import { useNavigate, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 
 
 
 function Plant(){
  const [plants, setplants] = useState([])
- const navigate = useNavigate();
+ /*const navigate = useNavigate();*/
 
  async function plantData(){
     const response = await fetch('https://localhost:7138/plants')
@@ -20,23 +20,29 @@ function Plant(){
     plantData()
  }, [])
 
-
+//<p><button onClick={()=> navigate('/')}>Go Back</button></p>
 return (
     <div className='plant'>
+
+        <p>Hi Annefleur</p>
+        <p>Here are your plants!</p>
       
-      <Link to={`/plants/new`}><button>Add plant</button></Link>
-      {plants.map((plant, index) => (
+      <p><Link id="add-button" to={`/plants/new`}>Add plant</Link></p>
+      
+      <div className='grid'>
+        {plants.map((plant, index) => (
        <ul key={index} className={plant.needsWater ? 'needs-water': ''}>
-          <li><button><Link to={`/plants/${plant.id}`} state={plant}>{plant.name}</Link></button></li>
+          <div className='plant-grid' classname={plant.needsWater ? 'needs-water': ''}><li><Link to={`/plants/${plant.id}`} state={plant}>{plant.name}</Link></li></div>
           
       
         </ul>
         
-      ))}
+      ))}</div>
+      
       
 
       
-      <button onClick={()=> navigate('/')}>Go Back</button>
+      
       
     </div>
     

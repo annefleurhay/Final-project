@@ -2,6 +2,8 @@ import React from 'react';
 import '../components/plantdetails.css'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect} from 'react'
+import happyPlant from '../images/happy-plant.png';
+import sadPlant from '../images/wiltered-plant.png';
 
 
 function PlantDetail() {
@@ -46,11 +48,13 @@ function PlantDetail() {
 
   
   return (
-    <div>
+    <div className='plantdetail'>
       <div>
       <h2>{plant.name}</h2>
+      
+      <img src={plant.needsWater ? sadPlant : happyPlant } alt='plant mood'/>
       <p>Location: {plant.place}</p>
-      <p>Needs water? {plant.needsWater ? 'Yes, I am thirsty!' : 'No, I am good.'}</p>
+      {/*<p>Needs water? {plant.needsWater ? 'Yes, I am thirsty!' : 'No, I am good.'}</p>*/}
     </div>
     <button onClick={()=> navigate('/plants')}>Go Back</button>
     <button onClick={updateWatering} disabled={updating}>Water me</button>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../components/plantPost.css'
 
 export default function PlantPost(){
     const navigate = useNavigate();
@@ -26,12 +27,7 @@ export default function PlantPost(){
         {method: 'POST', body: JSON.stringify(formData), 
         headers: {'Content-type': 'application/json; charset=UTF-8',}
     })
-    //.then((res) => {
-        //console.log(res.json())
-    //})
-    //.catch((err) => {
-    //    console.log(err.message);
-    //})
+    
     navigate('/plants');
 
 
@@ -39,8 +35,9 @@ export default function PlantPost(){
 
     return (
             <>
+            <h2>Add your plantbaby</h2>
             <form className="form" onSubmit={handleSubmit}>
-                <h2>Add your plantbaby</h2>
+                
                 <div className="form-input">
 
                     <label>Name</label>

@@ -94,7 +94,7 @@ namespace final.wwwapi.Endpoints
             plant.userId = 1;
             repository.CreatePlant(plant);
 
-            return Results.Ok();
+            return Results.Ok(plant);
             
         }
 

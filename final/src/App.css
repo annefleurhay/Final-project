@@ -1,12 +1,22 @@
 .App {
-  
+  display: grid;
+  grid-template-columns: 4fr;
+  grid-template-rows: 2fr;
   
   text-decoration: none;
 }
 
+body {
+  background-color: #151F1E;
+}
 
 li {
   list-style: none;
+}
+h1{
+  font-size: 46px; 
+    color: white;
+    text-align: center;
 }
 
 
