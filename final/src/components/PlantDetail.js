@@ -53,7 +53,6 @@ function PlantDetail() {
       <h2>{plant.name}</h2>
       
       <img src={plant.needsWater ? sadPlant : happyPlant } alt='plant mood'/>
-      <p>Location: {plant.place}</p>
       {/*<p>Needs water? {plant.needsWater ? 'Yes, I am thirsty!' : 'No, I am good.'}</p>*/}
     </div>
     <button onClick={()=> navigate('/plants')}>Go Back</button>

@@ -27,8 +27,11 @@ export default function PlantPost(){
         {method: 'POST', body: JSON.stringify(formData), 
         headers: {'Content-type': 'application/json; charset=UTF-8',}
     })
+    .then(()=>{
+        navigate('/plants');
+        
+    })
     
-    navigate('/plants');
 
 
     }
