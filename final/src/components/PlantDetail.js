@@ -13,7 +13,7 @@ function PlantDetail() {
   const plant = location.state;
 
   const updateWatering = async () => {
-    setUpdating(true); // Zet de status op 'updating' om te tonen dat het verzoek wordt verwerkt
+    setUpdating(true); 
 
     try {
       const response = await fetch('https://localhost:7138/plants/updateWatering', {
@@ -50,11 +50,11 @@ function PlantDetail() {
   return (
     <div className='plantdetail'>
       <div>
-      <h2>{plant.name}</h2>
+        <h2>{plant.name}</h2>
       
-      <img src={plant.needsWater ? sadPlant : happyPlant } alt='plant mood'/>
-      {/*<p>Needs water? {plant.needsWater ? 'Yes, I am thirsty!' : 'No, I am good.'}</p>*/}
-    </div>
+        <img src={plant.needsWater ? sadPlant : happyPlant } alt='plant mood'/>
+      </div>
+
     <button onClick={()=> navigate('/plants')}>Go Back</button>
     <button onClick={updateWatering} disabled={updating}>Water me</button>
     
