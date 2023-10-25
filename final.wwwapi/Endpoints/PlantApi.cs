@@ -51,7 +51,6 @@ namespace final.wwwapi.Endpoints
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-
         public static async Task<IResult> UpdateWatering(IRepository repository, UpdateWaterDate updateWaterDate) //Zet er een id in in plaats van updatewaterdate maar dit hoeft niet.
         {
             var plants = repository.GetPlants();
@@ -72,13 +71,7 @@ namespace final.wwwapi.Endpoints
                 }
             }
                 return Results.NotFound();
-
-            
-       
-           
-            
-
-            
+  
         }
 
 

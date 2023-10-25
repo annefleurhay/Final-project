@@ -17,11 +17,5 @@ namespace final.wwwapi.Models
             [ForeignKey("User")]
             public int userId { get; set; }
 
-
-
-        
-
-
-
     }
 }
